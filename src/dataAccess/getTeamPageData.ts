@@ -1,6 +1,6 @@
 import { query } from '$lib/util';
 import { groupBy, map, orderBy } from 'lodash';
-import { mapEmail, mapName, mapPhone, stringToArray } from './util';
+import { mapEmail, mapName, mapPhone, officialSortHash, orderByIt, stringToArray } from './util';
 
 const mapOfficial = (official: Collection.ITeamOfficial) => ({
   role: official.role,
@@ -22,7 +22,8 @@ const mapTeam = (team: Collection.ITeam, officialsGrouped: { [key: string]: Coll
 
 export const getTeamPageData = async () => {
   const officialsRaw = await query<Collection.ITeamOfficial[]>('items/teamOfficial');
-  const officialsGrouped = groupBy(officialsRaw, 'teamCode');
+  const officialsSorted = orderBy(officialsRaw, (member) => orderByIt(member, officialSortHash));
+  const officialsGrouped = groupBy(officialsSorted, 'teamCode');
 
   const teamRaw = await query<Collection.ITeam[]>('items/team');
   const teamsMapped = map(teamRaw, (team) => mapTeam(team, officialsGrouped));

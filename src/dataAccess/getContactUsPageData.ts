@@ -1,6 +1,6 @@
 import { query } from '$lib/util';
 import { filter, includes, keyBy, keys, map, orderBy } from 'lodash';
-import { execSortHash, mapEmail, mapName, mapPhone, nonExecSortHash } from './util';
+import { execSortHash, mapEmail, mapName, mapPhone, nonExecSortHash, officialSortHash, orderByIt } from './util';
 
 const mapCommittee = (member: Collection.ICommittee) => ({
   role: member.role,
@@ -17,10 +17,6 @@ const mapOfficial = (official: Collection.ITeamOfficial, teamGrouped: { [key: st
   teamName: teamGrouped[official.teamCode]?.name ?? null,
 });
 
-const orderByIt = (personWithRole: { lastName: string; firstName: string; role: string }, sortHash: { [key: string]: string }) => {
-  return (sortHash[personWithRole.role] ?? '99') + ' ' + personWithRole.lastName + ' ' + personWithRole.firstName;
-};
-
 export const getContactUsPageData = async () => {
   const committeeRaw = await query<Collection.ICommittee[]>('items/committee');
   const execCommitteeRaw = filter(committeeRaw, ({ role }) => includes(keys(execSortHash), role));
@@ -33,7 +29,8 @@ export const getContactUsPageData = async () => {
   const teamRaw = await query<Collection.ITeam[]>('items/team');
   const teamGrouped = keyBy(teamRaw, 'id');
   const officialsRaw = await query<Collection.ITeamOfficial[]>('items/teamOfficial');
-  const officialsMapped = map(officialsRaw, (official) => mapOfficial(official, teamGrouped));
+  const officialsSorted = orderBy(officialsRaw, (member) => orderByIt(member, officialSortHash));
+  const officialsMapped = map(officialsSorted, (official) => mapOfficial(official, teamGrouped));
 
   const coachesRaw = filter(officialsMapped, ({ role, teamCode }) => role === 'Head Coach' && teamCode !== null);
   const coaches = orderBy(coachesRaw, ['teamCode', 'lastName', 'firstName']);
