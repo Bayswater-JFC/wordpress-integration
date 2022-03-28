@@ -8,7 +8,7 @@
   "files.exclude": {
     ".czrc": true,
     ".gitattributes": true,
-    ".github": true,
+    // ".github": true,
     ".gitignore": true,
     ".husky": true,
     ".lintstagedrc.json": true,
