@@ -13,7 +13,7 @@ export const teams = async () => {
     const cls = i % 2 === 0 ? 'odd' : 'even';
     lines.push(`    <tr class="row-${i + 1} ${cls}">`);
     lines.push(`      <td class="column-1"><h4>${team.name}</h4></td>`);
-    lines.push(`      <td class="column-2">${urlInfo('Season Fixture', team.fixtureUrl)}</td>`);
+    lines.push(`      <td class="column-2">${urlInfo('Fixture', team.fixtureUrl)}</td>`);
     lines.push(`      <td class="column-2">${urlInfo('Results', team.resultsUrl)}</td>`);
     lines.push(`      <td class="column-2">${urlInfo('Ladder', team.ladderUrl)}</td>`);
     lines.push(`      <td class="column-5"><a href="${team.url}" target="_self" class="btn small-btn">Team Page</a></td>`);

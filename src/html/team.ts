@@ -32,7 +32,7 @@ export const team = async () => {
     lines.push(`    </div>`);
     lines.push(`    <div style="padding-top: .5em;">`);
     lines.push(`      <h4 style="margin-bottom: 5px;">Season Information</h4>`);
-    lines.push(`      <p style="margin: 0;">${urlInfo('Season Fixture', team.fixtureUrl)}</p>`);
+    lines.push(`      <p style="margin: 0;">${urlInfo('Fixture', team.fixtureUrl)}</p>`);
     lines.push(`      <p style="margin: 0;">${urlInfo('Results', team.resultsUrl)}</p>`);
     lines.push(`      <p style="margin: 0;">${urlInfo('Ladder', team.ladderUrl)}</p>`);
     lines.push(`    </div>`);
