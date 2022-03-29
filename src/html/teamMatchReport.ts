@@ -30,6 +30,6 @@ export const teamMatchReport = async () => {
     lines.push(`<p>Sorry, we couldn't find a matching match report.</p>`);
     lines.push(`</div>`);
 
-    writeHtml(lines, `teams-${team.id}-match-report`);
+    writeHtml(lines, `teams-${team.id.toLowerCase()}-match-report`);
   }
 };
