@@ -32,7 +32,7 @@ const mapMatchReports = (team: Collection.ITeam) => {
     if (team[fieldName] !== null) {
       output.push({
         url: `${teamSlug}-${roundSlug}-match-report`,
-        title: `${team.name} Round ${j} Match Report`,
+        title: `Round ${j} Match Report`,
       });
     }
   }
@@ -44,7 +44,7 @@ const mapMatchReports = (team: Collection.ITeam) => {
     if (team[fieldName] !== null) {
       output.push({
         url: `${teamSlug}-${finalSlug}-match-report`,
-        title: `${team.name} Round ${j} Match Report`,
+        title: `Final (${j}) Match Report`,
       });
     }
   }
