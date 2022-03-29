@@ -9,12 +9,16 @@ export const teamMatchReport = async () => {
     const lines: string[] = [];
     lines.push(`<script type="text/javascript">`);
     lines.push(`  jQuery(document).ready(function() {	`);
-    for (let j = 0; j < team.matchReports.length; j++) {
-      const matchReport = team.matchReports[j];
-      const prefix = j === 0 ? 'if' : 'else if';
-      lines.push(`    ${prefix} (window.location.search.includes("id=${matchReport.id}")) jQuery("#${matchReport.id}").show();`);
+    if (team.matchReports.length === 0) {
+      lines.push(`    jQuery("#not-found").show();`);
+    } else {
+      for (let j = 0; j < team.matchReports.length; j++) {
+        const matchReport = team.matchReports[j];
+        const prefix = j === 0 ? 'if' : 'else if';
+        lines.push(`    ${prefix} (window.location.search.includes("id=${matchReport.id}")) jQuery("#${matchReport.id}").show();`);
+      }
+      lines.push(`    else jQuery("#not-found").show();`);
     }
-    lines.push(`    else jQuery("#not-found").show();`);
 
     lines.push(`  })`);
     lines.push(`</script>`);
