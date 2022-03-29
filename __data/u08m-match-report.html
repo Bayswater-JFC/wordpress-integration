@@ -1,3 +1,9 @@
+<script type="text/javascript">
+  jQuery(document).ready(function() {	
+    if (window.location.search.includes("id=r01")) jQuery("#r01").show();
+    else if (window.location.search.includes("id=r02")) jQuery("#r02").show();
+  })
+</script>
 <div id="r01" style="display: none;">
   <h3>Round 1</h3>
   <p>Coming soon...</p>
@@ -6,13 +12,3 @@
   <h3>Round 2</h3>
   <p>Coming soon...</p>
 </div>
-<script type="text/javascript">
-  // if (window.location.search.includes("id=r01")) document.getElementById("r01").style.display = "block";
-  // if (window.location.search.includes("id=r02")) document.getElementById("r02").style.display = "block";
-  // document.getElementById("r01").style.display = "block";
-  jQuery(document).ready(function() {	
-    jQuery("#r01").show();
-    console.log(jQuery("#r01"))
-    console.log('wtf', window.location.search)
-  })
-</script>
