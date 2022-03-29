@@ -47,6 +47,12 @@ declare namespace DataAccess {
     fixtureUrl: string;
     resultsUrl: string;
     ladderUrl: string;
+    matchReports: ITeamPageMatchReport[];
+  }
+
+  export interface ITeamPageMatchReport {
+    url: string;
+    title: string;
   }
 
   export interface ITeamPageOfficial {
@@ -54,5 +60,48 @@ declare namespace DataAccess {
     name: string;
     phone: string;
     email: string;
+  }
+
+  export interface IPremiershipsPage {
+    premierships: ITeamPageTeam[];
+  }
+
+  export interface IPremiershipsPagePremiership {
+    year: string;
+    teamName: string;
+    division: string;
+    competition: string;
+  }
+
+  export interface IBestAndFairestPage {
+    boyWinners: IBestAndFairestPageWinner[];
+    girlWinners: IBestAndFairestPageWinner[];
+  }
+
+  export interface IBestAndFairestPageWinner {
+    year: string;
+    teamName: string;
+    winnerName: string;
+  }
+
+  export interface IClubChampionPage {
+    boyWinners: IBestAndFairestPageWinner[];
+    girlWinners: IBestAndFairestPageWinner[];
+  }
+
+  export interface IClubChampionPageWinner {
+    year: string;
+    teamName: string;
+    winnerName: string;
+  }
+
+  export interface IMatchReportPage {
+    matchReports: IMatchReportPageMatchReport[];
+  }
+
+  export interface IMatchReportPageMatchReport {
+    slug: string;
+    title: string;
+    markup: string;
   }
 }

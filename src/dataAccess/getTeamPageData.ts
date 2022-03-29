@@ -1,5 +1,5 @@
 import { query } from '$lib/util';
-import { groupBy, map, orderBy } from 'lodash';
+import { groupBy, includes, keys, map, orderBy, padStart } from 'lodash';
 import { mapEmail, mapName, mapPhone, officialSortHash, orderByIt, stringToArray } from './util';
 
 const mapOfficial = (official: Collection.ITeamOfficial) => ({
@@ -18,7 +18,39 @@ const mapTeam = (team: Collection.ITeam, officialsGrouped: { [key: string]: Coll
   fixtureUrl: team.fixtureUrl,
   resultsUrl: team.resultsUrl,
   ladderUrl: team.ladderUrl,
+  matchReports: mapMatchReports(team),
 });
+
+const mapMatchReports = (team: Collection.ITeam) => {
+  const output: DataAccess.ITeamPageMatchReport[] = [];
+  const fields = keys(team);
+  const teamSlug = team.id.toLowerCase();
+  for (let j = 1; ; j++) {
+    const roundSlug = `r${padStart(j.toString(), 2, '0')}`;
+    const fieldName = `${roundSlug}MatchReport`;
+    if (!includes(fields, fieldName)) break;
+    if (team[fieldName] !== null) {
+      output.push({
+        url: `${teamSlug}-${roundSlug}-match-report`,
+        title: `${team.name} Round ${j} Match Report`,
+      });
+    }
+  }
+
+  for (let j = 1; ; j++) {
+    const finalSlug = `f${padStart(j.toString(), 2, '0')}`;
+    const fieldName = `${finalSlug}MatchReport`;
+    if (!includes(fields, fieldName)) break;
+    if (team[fieldName] !== null) {
+      output.push({
+        url: `${teamSlug}-${finalSlug}-match-report`,
+        title: `${team.name} Round ${j} Match Report`,
+      });
+    }
+  }
+
+  return output;
+};
 
 export const getTeamPageData = async () => {
   const officialsRaw = await query<Collection.ITeamOfficial[]>('items/teamOfficial');

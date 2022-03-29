@@ -2,10 +2,10 @@ declare namespace Collection {
   export interface ICalendar {}
 
   export interface ICommittee {
-    id: number;
+    id: string;
     role: string;
-    firstName: string;
     lastName: string;
+    firstName: string;
     gender: Enums.PersonGenderEnum;
     phone: string;
     email: string;
@@ -26,7 +26,7 @@ declare namespace Collection {
   }
 
   export interface ITeamOfficial {
-    id: number;
+    id: string;
     teamCode: string;
     role: string;
     lastName: string;
@@ -37,15 +37,48 @@ declare namespace Collection {
     privacy: Enums.PrivacyEnum;
   }
 
-  export interface IClubPersonOfTheYear {}
+  export interface IClubPersonOfTheYear {
+    id: string;
+    year: string;
+    lastName: string;
+    firstName: string;
+  }
 
-  export interface IClubChampion {}
+  export interface IClubChampion {
+    id: string;
+    year: string;
+    lastName: string;
+    firstName: string;
+  }
 
-  export interface IPremiership {}
+  export interface IPremiership {
+    id: string;
+    year: string;
+    teamName: string;
+    division: string;
+    competition: string;
+  }
 
-  export interface ILifeMember {}
+  export interface ILifeMember {
+    id: string;
+    year: string;
+    lastName: string;
+    firstName: string;
+  }
 
-  export interface ICommitteeHistory {}
+  export interface ICommitteeHistory {
+    id: string;
+    year: string;
+    role: string;
+    lastName: string;
+    firstName: string;
+  }
 
-  export interface IBestAndFairest {}
+  export interface IBestAndFairest {
+    id: string;
+    year: string;
+    teamName: string;
+    lastName: string;
+    firstName: string;
+  }
 }

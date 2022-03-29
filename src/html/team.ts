@@ -8,14 +8,14 @@ export const team = async () => {
   for (let i = 0; i < teams.length; i++) {
     const team = teams[i];
     const lines: string[] = [];
-    lines.push(`<div class="team-image-row" />`);
+    // lines.push(`<div class="team-image-row" />`);
     lines.push(`<div class="col-container">`);
     lines.push(`  <div class="col1">`);
     lines.push(`    <h3 style="margin-top: 10px;">CONTACTS</h3>`);
     lines.push(`    <ul>`);
     for (let j = 0; j < team.officials.length; j++) {
       const official = team.officials[j];
-      lines.push(`  <li><b>${official.role}: </b><span class="nowrap">${personInfo(official)}</span></li>`);
+      lines.push(`      <li><b>${official.role}: </b><span class="nowrap">${personInfo(official)}</span></li>`);
     }
     lines.push(`    </ul>`);
     lines.push(`  </div>`);
@@ -37,6 +37,20 @@ export const team = async () => {
     lines.push(`      <p style="margin: 0;">${urlInfo('Ladder', team.ladderUrl)}</p>`);
     lines.push(`    </div>`);
     lines.push(`  </div>`);
+    lines.push(`</div>`);
+
+    lines.push(`<div>`);
+    lines.push(`  <h3 style="margin-top: 10px;">MATCH REPORTS</h3>`);
+    if (team.matchReports.length === 0) {
+      lines.push(`  <p>Coming Soon...</p>`);
+    } else {
+      lines.push(`  <ul>`);
+      for (let j = 0; j < team.matchReports.length; j++) {
+        const matchReport = team.matchReports[j];
+        lines.push(`    <li><a href="${matchReport.url}" rel="nofollow">${matchReport.title}</a></li>`);
+      }
+      lines.push(`  </ul>`);
+    }
     lines.push(`</div>`);
 
     writeHtml(lines, `teams-${team.slug}`);
