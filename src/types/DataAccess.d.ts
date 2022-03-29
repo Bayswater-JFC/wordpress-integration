@@ -96,11 +96,16 @@ declare namespace DataAccess {
   }
 
   export interface IMatchReportPage {
+    teams: IMatchReportPageTeam[];
+  }
+
+  export interface IMatchReportPageTeam {
+    id: string;
     matchReports: IMatchReportPageMatchReport[];
   }
 
   export interface IMatchReportPageMatchReport {
-    slug: string;
+    id: string;
     title: string;
     markup: string;
   }

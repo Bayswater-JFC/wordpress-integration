@@ -3,33 +3,39 @@ import { includes, keys, padStart } from 'lodash';
 
 export const getTeamMatchReportPageData = async () => {
   const teamRaw = await query<Collection.ITeam[]>('items/team');
-  const output: DataAccess.IMatchReportPageMatchReport[] = [];
+  const teams: DataAccess.IMatchReportPageTeam[] = [];
   for (let i = 0; i < teamRaw.length; i++) {
     const team = teamRaw[i];
     const fields = keys(team);
-    const teamSlug = team.id.toLowerCase();
+    const matchReports: DataAccess.IMatchReportPageMatchReport[] = [];
     for (let j = 1; ; j++) {
       const roundSlug = `r${padStart(j.toString(), 2, '0')}`;
       const fieldName = `${roundSlug}MatchReport`;
       if (!includes(fields, fieldName)) break;
-      output.push({
-        slug: `${teamSlug}-${roundSlug}-match-report`,
-        title: `${team.name} Round ${j} Match Report`,
-        markup: team[fieldName] ?? '<p>Coming soon...</p>',
-      });
+      if (team[fieldName] !== null) {
+        matchReports.push({
+          id: roundSlug,
+          title: `Round ${j}`,
+          markup: team[fieldName],
+        });
+      }
     }
 
     for (let j = 1; ; j++) {
       const finalSlug = `f${padStart(j.toString(), 2, '0')}`;
       const fieldName = `${finalSlug}MatchReport`;
       if (!includes(fields, fieldName)) break;
-      output.push({
-        slug: `${teamSlug}-${finalSlug}-match-report`,
-        title: `${team.name} Final (${j}) Match Report`,
-        markup: team[fieldName] ?? '<p>Coming soon...</p>',
-      });
+      if (team[fieldName] !== null) {
+        matchReports.push({
+          id: finalSlug,
+          title: `Final ${j}`,
+          markup: team[fieldName],
+        });
+      }
     }
+
+    teams.push({ id: team.id, matchReports });
   }
 
-  return output;
+  return { teams };
 };
