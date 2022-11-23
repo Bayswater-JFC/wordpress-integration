@@ -7,6 +7,7 @@ const treasurer = 'Treasurer';
 const registrar = 'Registrar';
 const auskickCoordinator = 'Auskick Coordinator';
 const sponsorshipAndAwardsCoordinator = 'Sponsorship & Awards Coordinator';
+const sponsorshipCoordinator = 'Sponsorship Coordinator';
 const headTrainer = 'Head Trainer';
 const grantsCoordinator = 'Grants Coordinator';
 const merchandiseAndUniformCoordinator = 'Merchandise & Uniform Coordinator';
@@ -15,6 +16,7 @@ const childSafetyOfficer = 'Child Safety Officer';
 const schoolLiaisonOfficer = 'School Liaison Officer';
 const facilityManagement = 'Facility Management';
 const awardsCoordinator = 'Awards Coordinator';
+const seniorDelegate = 'Senior Delegate';
 const generalCommittee = 'General Committee';
 
 const headCoach = 'Head Coach';
@@ -27,15 +29,17 @@ export const execSortHash = { [president]: '01', [vicePresident]: '02', [secreta
 export const nonExecSortHash = {
   [auskickCoordinator]: '01',
   [sponsorshipAndAwardsCoordinator]: '02',
-  [awardsCoordinator]: '02',
-  [childSafetyOfficer]: '03',
-  [headTrainer]: '04',
-  [facilityManagement]: '05',
-  [grantsCoordinator]: '06',
-  [merchandiseAndUniformCoordinator]: '07',
-  [schoolLiaisonOfficer]: '08',
-  [websiteAdministrator]: '09',
-  [generalCommittee]: '10',
+  [sponsorshipCoordinator]: '03',
+  [awardsCoordinator]: '04',
+  [childSafetyOfficer]: '05',
+  [headTrainer]: '06',
+  [facilityManagement]: '07',
+  [grantsCoordinator]: '08',
+  [seniorDelegate]: '09',
+  [merchandiseAndUniformCoordinator]: '10',
+  [schoolLiaisonOfficer]: '11',
+  [websiteAdministrator]: '12',
+  [generalCommittee]: '13',
 };
 
 export const officialSortHash = { [headCoach]: '01', [assistantCoach]: '02', [teamManager]: '03', [trainer]: '04' };
