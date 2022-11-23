@@ -9,21 +9,21 @@ export const contactUs = async () => {
   const coaches = contactUs.coaches;
 
   const lines: string[] = [];
-  lines.push(`<h2>2022 EXECUTIVE COMMITTEE</h2>`);
+  lines.push(`<h2>2023 EXECUTIVE COMMITTEE</h2>`);
   lines.push(`<ul>`);
   for (let i = 0; i < execCommittee.length; i++) {
     const member = execCommittee[i];
     lines.push(`  <li><span class="contact">${member.role}: </span><span class="nowrap">${personInfo(member)}</span></li>`);
   }
   lines.push(`</ul>`);
-  lines.push(`<h2>2022 GENERAL COMMITTEE MEMBERS</h2>`);
+  lines.push(`<h2>2023 GENERAL COMMITTEE MEMBERS</h2>`);
   lines.push(`<ul>`);
   for (let i = 0; i < nonExecCommittee.length; i++) {
     const member = nonExecCommittee[i];
     lines.push(`  <li><span class="contact">${member.role}: </span><span class="nowrap">${personInfo(member)}</span></li>`);
   }
   lines.push(`</ul>`);
-  lines.push(`<h2>2022 COACHES</h2>`);
+  lines.push(`<h2>2023 COACHES</h2>`);
   lines.push(`<ul>`);
   for (let i = 0; i < coaches.length; i++) {
     const coach = coaches[i];

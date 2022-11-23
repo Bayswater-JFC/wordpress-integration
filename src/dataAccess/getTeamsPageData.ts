@@ -4,7 +4,7 @@ import { map, orderBy } from 'lodash';
 const mapTeam = (team: Collection.ITeam) => ({
   id: team.id,
   slug: team.id.toLowerCase(),
-  url: `2022-${team.id.toLowerCase()}-team`,
+  url: `2023-${team.id.toLowerCase()}-team`,
   name: team.name,
   fixtureUrl: team.fixtureUrl,
   resultsUrl: team.resultsUrl,
