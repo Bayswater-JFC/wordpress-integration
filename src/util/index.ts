@@ -1,13 +1,15 @@
 import fs from 'fs';
+import { camelCase, map, mapKeys } from 'lodash';
 import fetch from 'node-fetch';
 import path from 'path';
 
-const baseUrl = 'http://localhost:8055';
+const baseUrl = 'http://0.0.0.0:8055';
 
 export const query = async <T = any>(query: string) => {
   const response1 = await fetch(`${baseUrl}/${query}`);
-  const json = <any>await response1.json();
-  return json.data as T;
+  const objRaw = <any>await response1.json();
+  const obj = map(objRaw.data, (obj) => mapKeys(obj, (v, k) => camelCase(k)));
+  return obj as T;
 };
 
 export const writeHtml = (lines: string[], slug: string) => {

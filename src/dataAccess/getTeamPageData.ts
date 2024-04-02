@@ -53,11 +53,11 @@ const mapMatchReports = (team: Collection.ITeam) => {
 };
 
 export const getTeamPageData = async () => {
-  const officialsRaw = await query<Collection.ITeamOfficial[]>('items/teamOfficial');
+  const officialsRaw = await query<Collection.ITeamOfficial[]>('items/app_team_officials');
   const officialsSorted = orderBy(officialsRaw, (member) => orderByIt(member, officialSortHash));
-  const officialsGrouped = groupBy(officialsSorted, 'teamCode');
+  const officialsGrouped = groupBy(officialsSorted, 'teamId');
 
-  const teamRaw = await query<Collection.ITeam[]>('items/team');
+  const teamRaw = await query<Collection.ITeam[]>('items/app_teams');
   const teamsMapped = map(teamRaw, (team) => mapTeam(team, officialsGrouped));
   const teams = orderBy(teamsMapped, ['id']);
 

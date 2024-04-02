@@ -4,7 +4,7 @@ import { map, orderBy } from 'lodash';
 const mapTeam = (team: Collection.ITeam) => ({
   id: team.id,
   slug: team.id.toLowerCase(),
-  url: `2023-${team.id.toLowerCase()}-team`,
+  url: `2024-${team.id.toLowerCase()}-team`,
   name: team.name,
   fixtureUrl: team.fixtureUrl,
   resultsUrl: team.resultsUrl,
@@ -12,7 +12,7 @@ const mapTeam = (team: Collection.ITeam) => ({
 });
 
 export const getTeamsPageData = async () => {
-  const teamRaw = await query<Collection.ITeam[]>('items/team');
+  const teamRaw = await query<Collection.ITeam[]>('items/app_teams');
   const teamsMapped = map(teamRaw, (team) => mapTeam(team));
   const teams = orderBy(teamsMapped, ['id']);
 

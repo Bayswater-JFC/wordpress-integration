@@ -16,7 +16,7 @@ declare namespace DataAccess {
     role: string;
     name: string;
     phone: string;
-    teamCode: string;
+    teamId: string;
     teamName: string;
   }
 

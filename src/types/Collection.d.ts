@@ -27,7 +27,7 @@ declare namespace Collection {
 
   export interface ITeamOfficial {
     id: string;
-    teamCode: string;
+    teamId: string;
     role: string;
     lastName: string;
     firstName: string;
