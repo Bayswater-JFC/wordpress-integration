@@ -2,7 +2,7 @@ import fs from 'fs';
 import fetch from 'node-fetch';
 import path from 'path';
 
-const baseUrl = 'https://0r78b6qe.directus.app';
+const baseUrl = 'http://localhost:8055';
 
 export const query = async <T = any>(query: string) => {
   const response1 = await fetch(`${baseUrl}/${query}`);
