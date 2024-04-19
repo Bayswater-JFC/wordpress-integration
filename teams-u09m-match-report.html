@@ -1,8 +1,41 @@
 <script type="text/javascript">
   jQuery(document).ready(function () {
-    jQuery('#not-found').show();
+    if (window.location.search.includes('id=r01')) jQuery('#r01').show();
+    else if (window.location.search.includes('id=r02')) jQuery('#r02').show();
+    else jQuery('#not-found').show();
   });
 </script>
+<div id="r01" style="display: none">
+  <h3>Round 1</h3>
+  <p dir="ltr">
+    Round one set the tone with the team playing in great spirits despite the challenging wet conditions. In my absence, Scott and Andrew ensured a smooth start
+    leading the team out. The highlight of the game was witnessing our new players take the field for the first time, seamlessly integrating into the team
+    dynamics. Despite the slippery conditions, teamwork prevailed, with every player contributing their best.
+  </p>
+  <p dir="ltr">
+    Some great highlights for round 1 including Phoenix, whose combination of pressure and skill stood out, while Frankie's ability to involve everyone in the
+    game was commendable. Lennox had a positive start getting involved in the game, and Billy's attack on the ball was excellent. Declan cleared the ball out of
+    the centre well, provided numerous scoring opportunities, complemented by Jack's finishing with two cracking goals.
+  </p>
+</div>
+<div id="r02" style="display: none">
+  <h3>Round 2</h3>
+  <p>
+    Round two saw the team emphasising running the ball forward with intent and in numbers. The response was immediate, as players displayed relentless
+    determination, pushing hard to gain ground. Logan executed instructions impeccably, consistently finding teammates with handballs out the back of play.
+    Lewis showcased his tenacity, driving the ball forward while seeking out targets up field.
+  </p>
+  <p>
+    Bella's standout mark in the backline demonstrated defensive awareness, while Harvey's debut was marked by sheer determination and skillful ball movement.
+    Cohen's spectacular mark and Patrick's jubilant celebration after a stunning goal had everyone cheering with excitement.
+  </p>
+  <p>
+    Looking ahead, the team is determined to build on their existing skills and game sense from the previous season. Focus will also be placed on tightening
+    defensive structures, particularly manning the mark, and exploring opportunities to switch the ball across the ground to create scoring chances.
+  </p>
+  <p>The team has kicked off the season with a bang, now having two games under their belt, showcasing promising signs for the journey ahead.</p>
+  <p>We are all looking forward to the coming weeks, see you all on the track Friday night for another fun training session.</p>
+</div>
 <div id="not-found" style="display: none">
   <h3>Not Found</h3>
   <p>Sorry, we couldn't find a matching match report.</p>
