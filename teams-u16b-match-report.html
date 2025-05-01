@@ -1,8 +1,44 @@
 <script type="text/javascript">
   jQuery(document).ready(function () {
-    jQuery('#not-found').show();
+    if (window.location.search.includes('id=r01')) jQuery('#r01').show();
+    else if (window.location.search.includes('id=r02')) jQuery('#r02').show();
+    else jQuery('#not-found').show();
   });
 </script>
+<div id="r01" style="display: none">
+  <h3>Round 1</h3>
+  <p>V Upper FTG</p>
+  <p>
+    A fresh start for the reigning Premiers! After a great preseason focusing on fitness and conditioning, this was our first chance to gel as a new team! As a
+    coach I was very excited to see what worked and what didn&rsquo;t, so we could make some tweaks!
+  </p>
+  <p>
+    Coming up against a team that dropped down from B grade last year, we knew this would be a great challenge! After a tricky first quarter we started to see
+    some great flickers of fast passage, link up hand balls, possession footy!
+  </p>
+  <p>
+    The score wasn&rsquo;t what we were after, but we had some great take-aways! Round 1 showed that the midfield needed more structure, an aggressive plan to
+    be included and improved. Our forward line penetration needed some tweaking too, and our backline had some room for tighter defence!
+  </p>
+  <p>The players I saw direct improvement from during the game were: Dion, Owen, Liam</p>
+</div>
+<div id="r02" style="display: none">
+  <h3>Round 2</h3>
+  <p>V Tiger Wolves</p>
+  <p>After a big almost three week break, a great Mel Bangs tackling session and reflection from Round 1, we were ready to blitz on Anzac Day!</p>
+  <p>
+    Our first quarter showed a more organised midfield, which led to many forward line clearances! We let a couple goals through but it was clear we were on
+    top!
+  </p>
+  <p>
+    As the game went on, we created more space in our forward line, worked on our centre clearances and really showed some great rebounding from the half back
+    line!
+  </p>
+  <p>
+    What a great and deserved first win for Anzac Day! The Tiger Wolves coach chose two players he thought showed a relentless effort, camaraderie,
+    sportsmanship and respect all game! I completely agree that Jed and Levi were two of our best for the day!
+  </p>
+</div>
 <div id="not-found" style="display: none">
   <h3>Not Found</h3>
   <p>Sorry, we couldn't find a matching match report.</p>
